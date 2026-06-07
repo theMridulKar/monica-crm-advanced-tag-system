@@ -48,8 +48,12 @@ Implemented feature tests covering tag creation, filtering, deletion behavior, a
 ``./vendor/bin/sail up -d``
 - **Down:**
 ``./vendor/bin/sail down``
-- **NPM Run:**
+
+**4. Docker**
+- **NPM install:**
 ``./vendor/bin/sail npm install``
+- **NPM run:**
+``./vendor/bin/sail npm run dev``
 
 
 ### Environment Configuration
