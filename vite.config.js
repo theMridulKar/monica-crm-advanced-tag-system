@@ -36,7 +36,11 @@ export default defineConfig(({ mode }) => {
     ],
     server: {
       https: true,
-      host: 'localhost',
+      // Required for Docker: Allows the dev server to be accessible from outside the container
+      host: '0.0.0.0',
+      hmr: {
+        host: 'localhost',
+      },
     },
     ssr: {
       noExternal: ['@inertiajs/server'],
