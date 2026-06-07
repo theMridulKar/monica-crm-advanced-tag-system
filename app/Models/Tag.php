@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Tag extends Model
 {
@@ -20,6 +21,7 @@ class Tag extends Model
     protected $fillable = [
         'vault_id',
         'name',
+        'tag_category',
         'slug',
     ];
 
@@ -51,5 +53,11 @@ class Tag extends Model
     public function feedItem(): MorphOne
     {
         return $this->morphOne(ContactFeedItem::class, 'feedable');
+    }
+
+
+    public function advancedContacts(): MorphToMany
+    {
+        return $this->morphedByMany(Contact::class, 'taggable');
     }
 }

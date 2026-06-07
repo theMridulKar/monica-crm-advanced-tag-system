@@ -498,4 +498,12 @@ class Contact extends VCardResource
             }
         );
     }
+
+
+    public function advancedTags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable', 'taggables')
+                    ->using(Taggable::class)
+                    ->withTimestamps();
+    }
 }
